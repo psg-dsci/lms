@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Management System</title>
+</head>
+<body>
+    <h1>Library Management System</h1>
+    <a href="{% url 'add_book' %}">Add Book</a>
+    <ul>
+        {% for book in books %}
+        <li>{{ book.title }} by {{ book.author }} - {{ book.available_copies }} copies available
+            <a href="{% url 'borrow_book' book.id %}">Borrow</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
